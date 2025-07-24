@@ -1,0 +1,29 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo circular gradiente -->
+  <circle cx="64" cy="64" r="60" fill="url(#gradient)"/>
+  
+  <!-- Detalhe de pista -->
+  <path d="M30,64 C30,40 98,40 98,64 C98,88 30,88 30,64 Z" stroke="white" stroke-width="4" fill="none"/>
+  
+  <!-- Elemento de telemetria (gráfico) -->
+  <polyline points="40,50 50,70 60,50 70,80 80,60 90,75 100,65" 
+           stroke="white" stroke-width="3" fill="none"/>
+  
+  <!-- Estilo de bandeira quadriculada -->
+  <rect x="100" y="40" width="10" height="10" fill="white"/>
+  <rect x="110" y="40" width="10" height="10" fill="#D40000"/>
+  <rect x="100" y="50" width="10" height="10" fill="#D40000"/>
+  <rect x="110" y="50" width="10" height="10" fill="white"/>
+  
+  <!-- Texto F1 estilizado -->
+  <text x="64" y="75" font-family="Arial" font-weight="bold" font-size="24" 
+        text-anchor="middle" fill="white">F1</text>
+  
+  <!-- Gradiente vermelho -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D40000"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+  </defs>
+</svg>
