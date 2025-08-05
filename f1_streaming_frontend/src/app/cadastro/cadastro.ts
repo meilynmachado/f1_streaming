@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-cadastro',
-  standalone: true,
-  imports: [FormsModule, RouterLink, CommonModule],
+  standalone: true, 
+  imports: [FormsModule], 
   templateUrl: './cadastro.html',
   styleUrls: ['./cadastro.scss']
 })
-export class Cadastro {
+export class Cadastro{
   nome: string = '';
   email: string = '';
   senha: string = '';
@@ -23,14 +22,6 @@ export class Cadastro {
       alert('As senhas não coincidem!');
       return;
     }
-
-    // e aq implementar a logica de cadastro e tal
-    console.log('Cadastro:', {
-      nome: this.nome,
-      email: this.email,
-      senha: this.senha
-    });
-
-    // this.router.navigate(['/login']);
+  
   }
 }
