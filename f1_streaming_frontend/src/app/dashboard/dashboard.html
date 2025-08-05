@@ -1,0 +1,76 @@
+<div class="dashboard-container">
+  <!-- barra superior -->
+  <div class="top-bar">
+    <div class="app-title">F1 STREAMING</div>
+    <div class="user-menu">
+      <button class="user-btn" (click)="toggleMenu()">{{ user.name }}</button>
+      <div class="dropdown-menu" *ngIf="showMenu">
+        <a href="#">Ver perfil</a>
+        <a href="#">Sair</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- barra lateral -->
+    <div class="sidebar">
+      <ul>
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Equipes</a></li>
+        <li><a href="#">Corridas</a></li>
+      </ul>
+    </div>
+
+    <!-- area de conteudo -->
+    <div class="content-area">
+      <div class="header-row">
+        <h1>Resumo da temporada 2025</h1>
+        <button class="refresh-btn" (click)="refreshData()">Atualizar Dados</button>
+      </div>
+
+      <!-- cards de resumo -->
+      <div class="stats-row">
+        <div class="stat-card" *ngFor="let stat of getSeasonStats()">
+          <h3>{{ stat.title }}</h3>
+          <p>{{ stat.value }}</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ranquing de equipes -->
+      <h2>Ranking de Equipe</h2>
+      <div class="team-ranking">
+        <div class="team-card" *ngFor="let team of teamRanking">
+          <div class="medal" [class]="'medal-' + getMedalType(team.position)">
+            {{ team.position }}º
+          </div>
+          <div class="team-info">
+            <span class="team-name">{{ team.name }}</span>
+            <span class="team-points">{{ team.points }} PTS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ultimas corridas -->
+      <h2>Últimas corridas</h2>
+      <table class="races-table">
+        <thead>
+          <tr>
+            <th *ngFor="let header of ['GP', 'Data', 'Equipe', 'Melhor Volta']">{{ header }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let race of lastRaces">
+            <td>{{ race.gp }}</td>
+            <td>{{ race.date }}</td>
+            <td>{{ race.team }}</td>
+            <td>{{ race.bestLap }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
