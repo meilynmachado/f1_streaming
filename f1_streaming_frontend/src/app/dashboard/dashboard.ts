@@ -40,7 +40,6 @@ export class Dashboard {
 
 
   refreshData() {
-
     this.seasonStats.fastestLap = '1:11.890';
     this.teamRanking[0].points = 480;
     this.lastRaces.unshift({

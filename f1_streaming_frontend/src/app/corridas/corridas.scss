@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+.corridas-container {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #E8E8E8;
+
+// barra superior
+  .top-bar {
+    background-color: #990100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+
+    .app-title {
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .user-menu {
+      position: relative;
+
+      .user-btn {
+        background-color: #333333;
+        color: #FFFFFF;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #444444;
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        min-width: 150px;
+        overflow: hidden;
+        z-index: 100;
+
+        a {
+          display: block;
+          padding: 0.75rem 1rem;
+          color: #333333;
+          text-decoration: none;
+          font-size: 0.9rem;
+
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+
+//  conteudo principal
+  .main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+// area do conteudo
+  .content-area {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+
+    h1, h2 {
+      color: #333333;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .refresh-btn {
+      background-color: #0BB07B;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #089a6a;
+      }
+    }
+
+// tabela de corridas
+    .races-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+
+      thead {
+        tr {
+          background-color: #B90504;
+
+          th {
+            color: #F6F6F6;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid #990100;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          td {
+            padding: 0.75rem 1rem;
+            background-color: #F6F6F6;
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+}

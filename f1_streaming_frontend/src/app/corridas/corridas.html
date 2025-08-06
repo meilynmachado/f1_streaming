@@ -1,0 +1,35 @@
+<div class="corridas-container">
+  <!-- barra superior -->
+  <app-header></app-header>
+
+  <div class="main-content">
+    <!-- barra lateral -->
+    <app-sidebar></app-sidebar>
+
+    <!-- area de conteudo -->
+    <div class="content-area">
+      <div class="header-row">
+        <h1>Corridas Cadastradas</h1>
+        <button class="refresh-btn" (click)="refreshData()">Atualizar Dados</button>
+      </div>
+  
+      <!-- tabela de corridas -->
+    <table class="races-table">
+  <thead>
+    <tr>
+        <th *ngFor="let header of ['Circuito', 'País', 'Cidade', 'Data', 'Ação']">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let race of races">
+      <td>{{ race.circuit_short_name }}</td>
+      <td>{{ race.country_name }}</td>
+      <td>{{ race.location }}</td>
+      <td>{{ race.date_start }}</td>
+      <td>{{ '' }}</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
