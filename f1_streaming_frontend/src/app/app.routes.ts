@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './login/login';
 import { Cadastro } from './cadastro/cadastro';
+import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
   { 
@@ -17,5 +18,11 @@ export const routes: Routes = [
     path: 'cadastro',
     component: Cadastro,
     title: 'Cadastro'
+  },
+
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    title: 'Dashboard' // Adiciona título da página
   }
 ];
