@@ -1,0 +1,35 @@
+<div class="equipes-container">
+  <!-- barra superior -->
+  <app-header></app-header>
+
+  <div class="main-content">
+    <!-- barra lateral -->
+    <app-sidebar></app-sidebar>
+
+    <!-- area de conteudo -->
+    <div class="content-area">
+      <div class="header-row">
+        <h1>Equipes Cadastradas</h1>
+        <button class="refresh-btn" (click)="refreshData()">Atualizar Dados</button>
+      </div>
+
+      <!-- tabela de equipes -->
+      <table class="teams-table">
+        <thead>
+          <tr>
+            <th *ngFor="let header of ['Nome da Equipe', 'País de Origem', 'Ano de Fundação', 'Nº de Pilotos','Ação']">{{ header }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams">
+            <td>{{ team.name }}</td>
+            <td>{{ team.country }}</td>
+            <td>{{ team.yearFounded }}</td>
+            <td>{{ team.numberOfDrivers }}</td>
+            <td>{{team.action}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
