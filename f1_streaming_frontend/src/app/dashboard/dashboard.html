@@ -1,25 +1,10 @@
 <div class="dashboard-container">
   <!-- barra superior -->
-  <div class="top-bar">
-    <div class="app-title">F1 STREAMING</div>
-    <div class="user-menu">
-      <button class="user-btn" (click)="toggleMenu()">{{ user.name }}</button>
-      <div class="dropdown-menu" *ngIf="showMenu">
-        <a href="#">Ver perfil</a>
-        <a href="#">Sair</a>
-      </div>
-    </div>
-  </div>
+  <app-header></app-header>
 
   <div class="main-content">
     <!-- barra lateral -->
-    <div class="sidebar">
-      <ul>
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Equipes</a></li>
-        <li><a href="#">Corridas</a></li>
-      </ul>
-    </div>
+    <app-sidebar></app-sidebar>
 
     <!-- area de conteudo -->
     <div class="content-area">

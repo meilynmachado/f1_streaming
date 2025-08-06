@@ -7,7 +7,7 @@
   flex-direction: column;
   background-color: #E8E8E8;
 
-  /* Top Bar */
+// barra superior
   .top-bar {
     background-color: #990100;
     padding: 1rem 2rem;
@@ -69,60 +69,14 @@
     }
   }
 
-  /* Main Content Layout */
+//  conteudo principal
   .main-content {
     display: flex;
     flex: 1;
     overflow: hidden;
   }
 
-  /* Sidebar */
-  .sidebar {
-    background-color: #333333;
-    width: 250px;
-    padding: 1.5rem 0;
-    color: white;
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      li {
-        padding: 0.75rem 2rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        a {
-          color: white;
-          text-decoration: none;
-          font-weight: 500;
-          display: block;
-        }
-
-        &:hover {
-          background-color: #444444;
-        }
-
-        &.active {
-          background-color: #990100;
-          position: relative;
-
-          &::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background-color: #B90504;
-          }
-        }
-      }
-    }
-  }
-
-  /* Content Area */
+// area do conteudo
   .content-area {
     flex: 1;
     padding: 2rem;
@@ -164,7 +118,7 @@
       }
     }
 
-    /* Stats Cards */
+
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -194,7 +148,7 @@
       }
     }
 
-    /* Divider */
+// linha pra dividir
     .divider {
       height: 1px;
       background-color: #333333;
@@ -202,7 +156,7 @@
       margin: 2rem 0;
     }
 
-    /* Team Ranking */
+// ranking de equipes
     .team-ranking {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -252,7 +206,7 @@
       }
     }
 
-    /* Races Table */
+// tabela de corridas
     .races-table {
       width: 100%;
       border-collapse: collapse;

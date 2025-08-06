@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Header } from "../components/header/header";
+import { Sidebar } from "../components/sidebar/sidebar";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.html',
-  imports: [CommonModule]
-})
-
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.scss']
-})
+  styleUrls: ['./dashboard.scss'],
+  imports: [CommonModule, Header, Sidebar],
+  standalone: true})
+  
 export class Dashboard {
   showMenu = false;
   
@@ -22,7 +20,7 @@ export class Dashboard {
     fastestLap: '1:12.345',
     averageLap: '1:15.678',
     lastWinner: 'Max Verstappen'
-  };
+  }; 
 
   teamRanking = [
     { position: 1, name: 'McLaren', points: 460 },
@@ -36,6 +34,7 @@ export class Dashboard {
   ];
 
   toggleMenu() {
+    console.log('Menu toggled');
     this.showMenu = !this.showMenu;
   }
 
