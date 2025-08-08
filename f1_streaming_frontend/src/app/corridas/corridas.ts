@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Sidebar } from '../components/sidebar/sidebar';
 import { Header } from '../components/header/header';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule,HttpClient} from '@angular/common/http';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-corridas',
-  imports: [Sidebar, Header, CommonModule, HttpClientModule],
+  imports: [Sidebar, Header, CommonModule],
   templateUrl: './corridas.html',
   styleUrl: './corridas.scss',
   standalone: true})
@@ -15,24 +16,20 @@ import { HttpClientModule,HttpClient} from '@angular/common/http';
 export class Corridas {
   
   refreshData() {
-  this.http.get<any[]>('https://api.openf1.org/v1/sessions').subscribe({
-    next: (data) => {
-      // Filtra sessões de corrida
-      this.races = data.filter(race => race.session_name === 'Race');
-    },
-    error: (err) => console.error('Erro ao buscar corridas:', err)
-  });}
+   this.races = this.http.get<any[]>('https://api.openf1.org/v1/sessions').pipe(
+      map((races: any[]) => races.filter((race: { session_type: string; }) => race.session_type === 'Race')) // 'Race' com R maiúsculo, conforme a API
+    );
+}
 
-  races: any[] = [];
+  races!: Observable<any[]> | null;
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-  this.http.get<any[]>('https://api.openf1.org/v1/sessions').subscribe({
-    next: (data) => {
-      this.races = data.filter(race => race.session_name === 'Race');
-    },
-    error: (err) => console.error('Erro ao buscar corridas:', err)
-  });
-  }
+ngOnInit() {
+  this.races = this.http.get<any[]>('https://api.openf1.org/v1/sessions').pipe(
+      map((races: any[]) => races.filter((race: { session_type: string; }) => race.session_type === 'Race')) // 'Race' com R maiúsculo, conforme a API
+    );
+}
+
+  
 }

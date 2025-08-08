@@ -17,19 +17,22 @@
     <table class="races-table">
   <thead>
     <tr>
-        <th *ngFor="let header of ['Circuito', 'País', 'Cidade', 'Data', 'Ação']">{{ header }}</th>
+        <th *ngFor="let header of ['Circuito', 'País', 'Data']">{{ header }}</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let race of races">
-      <td>{{ race.circuit_short_name }}</td>
-      <td>{{ race.country_name }}</td>
-      <td>{{ race.location }}</td>
-      <td>{{ race.date_start }}</td>
-      <td>{{ '' }}</td>
-    </tr>
+ 
+  <tbody *ngIf="races | async as races; else loading">
+     <tr  *ngFor="let race of races">
+        <td>{{ race.circuit_short_name }}</td>
+        <td>{{ race.country_name }}</td>
+        <td>{{ race.date_start | date }}</td>
+      </tr>
   </tbody>
 </table>
+
+<ng-template #loading>
+  <p>Carregando...</p>
+</ng-template>
     </div>
   </div>
 </div>
