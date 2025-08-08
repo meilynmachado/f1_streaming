@@ -85,6 +85,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     align-items: center;
+    z-index: 50000;
 
     &:hover {
       background-color:  #098860ee; 
